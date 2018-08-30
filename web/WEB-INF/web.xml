@@ -23,7 +23,7 @@
     </welcome-file-list>
     <login-config>
         <auth-method>FORM</auth-method>
-        <realm-name>jdbcRealm</realm-name>
+        <realm-name>myAuthority</realm-name>
         <form-login-config>
             <form-login-page>/faces/login.xhtml</form-login-page>
             <form-error-page>/faces/loginerror.xhtml</form-error-page>
