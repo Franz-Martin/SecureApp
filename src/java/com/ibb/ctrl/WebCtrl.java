@@ -43,13 +43,5 @@ public class WebCtrl {
         System.out.println("Ausgabe:"+person.getPasswort());
     }
     
-    public void login(){
-        try {
-            HttpServletRequest request=(HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-            request.login(person.getUsername(), person.getPasswort());
-            
-        } catch (ServletException ex) {
-            Logger.getLogger(WebCtrl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
 }

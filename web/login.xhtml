@@ -6,16 +6,21 @@
     <h:head>
         <title>Login Form</title>
     </h:head>
-    <h:body>
+    <h:body rendered="">
               
         
         <p:panel header="Login From">
-            <h:form>
-              Username:  <h:inputText value="#{webCtrl.person.username}" />
-              Passwort:  <h:inputSecret value="#{webCtrl.person.passwort}" />
+            
+            <h:form rendered="#{not siginCtrl.checkLogin()}">
+                Username:  <h:inputText value="#{siginCtrl.person.username}" />
+                Passwort:  <h:inputSecret value="#{siginCtrl.person.passwort}" />
               <h:commandButton action="#{webCtrl.doSomething()}" value="Absenden" />
-              <h:commandButton action="#{webCtrl.login()}" value="Login" />
+              <h:commandButton action="#{siginCtrl.login()}" value="Login" />
             </h:form>
+            <h:form rendered="#{siginCtrl.checkLogin()}">
+                <h:commandButton action="#{siginCtrl.logout()}" value="Logout" />
+            </h:form>
+            <h:outputText value="Sie Sind eingeloggt!!!!" rendered="#{siginCtrl.checkLogin()}"/>
             <h:outputText value="#{webCtrl.person.username}" />
             <form method="POST" action="j_security_check">
                 Username: <input type="text" name="j_username" />
